@@ -1,0 +1,28 @@
+name: pclineageos-ports-docker-containers CI debug builder
+'on':
+  - push
+  - workflow_dispatch
+jobs:
+  build-container-image:
+    name: Build and push container image to GHCR for LineageOS compiling
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v3
+
+      - name: Build images
+        id: build
+        uses: redhat-actions/buildah-build@v2
+        with:
+          image: pclineageos-ports/pclineageos-ports-docker-containers
+          tags: latest
+          containerfiles: Dockerfile
+
+      - name: Push container
+        uses: redhat-actions/push-to-registry@v2
+        with:
+          image: ${{ steps.build.outputs.image }}
+          tags: ${{ steps.build.outputs.tags }}
+          registry: ghcr.io
+          username: pclineageos-ports
+          password: ${{ secrets.GITHUB_TOKEN }}
