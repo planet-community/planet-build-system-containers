@@ -26,7 +26,6 @@ RUN apt-get update \
       g++-multilib \
       gcc-multilib \
       git \
-      gnupg \
       gperf \
       imagemagick \
       lib32ncurses5-dev \
@@ -46,7 +45,8 @@ RUN apt-get update \
       xsltproc \
       zip \
       zlib1g-dev \
-      adoptopenjdk-8-hotspot
+      adoptopenjdk-8-hotspot \
+      maven
 
 ADD https://storage.googleapis.com/git-repo-downloads/repo /usr/local/bin/repo
 RUN chmod a+x /usr/local/bin/repo
