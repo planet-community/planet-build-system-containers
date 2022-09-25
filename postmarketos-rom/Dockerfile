@@ -12,6 +12,9 @@ RUN apt-get update \
   git \
   python3-pip  \
   python3-dev \
+  python2-dev \
+  python2 \
+  python3 \
   sudo  \
   openssl \ 
   procps \
