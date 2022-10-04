@@ -24,5 +24,8 @@ RUN apt-get update \
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 RUN gpasswd -a jenkins sudo
 
+COPY ./postmarketos-rom/build.sh /home/jenkins
+RUN chmod a+x /home/jenkins/build.sh
+
 USER jenkins
 ENTRYPOINT ["/usr/local/bin/jenkins-agent"]
