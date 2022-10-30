@@ -6,7 +6,7 @@ on:
 
 jobs:
   build-container-image:
-    name: Build and push container image to GHCR for LineageOS compiling
+    name: Build and push container images to GHCR for Planet compiling
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -14,7 +14,8 @@ jobs:
           - android-rom
           - postmarketos-rom
           - java-services
-      fail-fast: true
+#          - astro-super-tools
+#          - root-image-tools
     steps:
       - name: Checkout sources
         uses: actions/checkout@v3
