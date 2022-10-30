@@ -14,7 +14,7 @@ jobs:
           - android-rom
           - postmarketos-rom
           - java-services
-#          - astro-super-tools
+          - astro-super-tools
 #          - root-image-tools
     steps:
       - name: Checkout sources
