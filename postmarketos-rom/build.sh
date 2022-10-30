@@ -5,7 +5,7 @@ set -e
 build_image () {
     echo "Building image for $1"
     if [ ! -d pmaports ]; then
-        git clone https://gitlab.com/postmarketOS/pmaports
+        git clone https://gitlab.com/postmarketOS/pmaports.git
     else 
         cd pmaports
         git pull
@@ -15,7 +15,7 @@ build_image () {
         cd ..
     fi
 
-    pmbootstrap -y --work=$PWD/work --aports=$PWD/pmaports -q init
+    yes "" | pmbootstrap -y -w $PWD/work -p $PWD/pmaports init
 
     pmbootstrap config ui weston
     pmbootstrap config device "${1}"
