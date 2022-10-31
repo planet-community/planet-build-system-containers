@@ -10,8 +10,8 @@ RUN apt-get update \
     && apt-get install -y \ 
         git \
         build-essential \
-        gcc-multilib \
-        clang
+        clang \
+        zlib1g-dev
 
 USER jenkins
 ENTRYPOINT ["/usr/local/bin/jenkins-agent"]
