@@ -15,6 +15,10 @@ RUN apt-get update \
         git-core \
         build-essential \
         clang \
+        bc \
+        bison \
+        gcc-multilib \
+        g++-multilib \
         unzip \
         zip \
         zlib1g-dev \
