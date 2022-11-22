@@ -20,6 +20,7 @@ RUN apt-get update \
         gcc-multilib \
         g++-multilib \
         unzip \
+        libssl-dev \
         zip \
         zlib1g-dev \
         adoptopenjdk-8-hotspot
