@@ -1,29 +1,8 @@
-FROM docker.io/jenkins/inbound-agent:latest-jdk11 AS base
+FROM docker.io/ghcr.io/shymega/planet-container-images:android-rom AS base
 
 ENV DEBIAN_FRONTEND=noninteractive
 
 USER root
-
-RUN apt-get update \
-    && apt-get install -y wget sudo gnupg2 software-properties-common \
-    && wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add - \
-    && add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/ \
-    && apt-get update \
-    && apt-get upgrade -y \
-    && apt-get dist-upgrade -y \
-    && apt-get install -y \ 
-        git-core \
-        build-essential \
-        clang \
-        bc \
-        bison \
-        gcc-multilib \
-        g++-multilib \
-        unzip \
-        libssl-dev \
-        zip \
-        zlib1g-dev \
-        adoptopenjdk-8-hotspot
 
 # Copied from `phstudy`
 ENV NDK_VERSION r17c
