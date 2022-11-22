@@ -1,4 +1,4 @@
-FROM docker.io/ghcr.io/shymega/planet-container-images:android-rom AS base
+FROM ghcr.io/shymega/planet-container-images:android-rom AS base
 
 ENV DEBIAN_FRONTEND=noninteractive
 
