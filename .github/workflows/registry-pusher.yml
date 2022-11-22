@@ -15,6 +15,7 @@ jobs:
           - postmarketos-rom
           - java-services
           - astro-super-tools
+          - boot-image-tools
 #          - root-image-tools
     steps:
       - name: Checkout sources
