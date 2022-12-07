@@ -6,7 +6,7 @@ on:
 
 jobs:
   build-container-image:
-    name: Build and push container images to GHCR for Planet compiling
+    name: Build and push container image: ${{ matrix.type }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -16,7 +16,6 @@ jobs:
           - java-services
           - astro-super-tools
           - boot-image-tools
-#          - root-image-tools
     steps:
       - name: Checkout sources
         uses: actions/checkout@v3
@@ -25,7 +24,7 @@ jobs:
         id: build
         uses: redhat-actions/buildah-build@v2
         with:
-          image: shymega/planet-container-images
+          image: ${{ github.repository }}
           tags: ${{ matrix.type }}
           containerfiles: ${{ matrix.type }}/Dockerfile
 
@@ -35,5 +34,5 @@ jobs:
           image: ${{ steps.build.outputs.image }}
           tags: ${{ steps.build.outputs.tags }}
           registry: ghcr.io
-          username: shymega
+          username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
