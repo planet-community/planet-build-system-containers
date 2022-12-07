@@ -9,6 +9,7 @@ jobs:
     name: Build and push container image 
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         type:
           - android-rom
