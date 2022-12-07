@@ -6,7 +6,7 @@ on:
 
 jobs:
   build-container-image:
-    name: Build and push container image: ${{ matrix.type }}
+    name: Build and push container image 
     runs-on: ubuntu-latest
     strategy:
       matrix:
