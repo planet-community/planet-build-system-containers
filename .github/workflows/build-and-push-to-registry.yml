@@ -1,7 +1,6 @@
 name: Containers CI builder
 on:
   push:
-    branches: [main]
   workflow_dispatch:
 
 # Ensures that only one deploy task per branch/environment will run at a time.
@@ -17,7 +16,8 @@ jobs:
       fail-fast: false
       max-parallel: 1
       matrix:
-        type:
+        container:
+          # - jenkins-base-agent-image
           - android-rom-builder
           - postmarketos-rom-builder
           #          - android-app-builder
@@ -34,8 +34,9 @@ jobs:
         uses: redhat-actions/buildah-build@v2
         with:
           image: ${{ github.repository }}
-          tags: ${{ matrix.type }}
-          containerfiles: ${{ matrix.type }}/Dockerfile
+          context: ${{ matrix.container }}/
+          tags:  ${{ contains(github.ref_name, 'master') && 'latest' || github.ref_name }}-PLANET_${{ matrix.container }}
+          containerfiles: ${{ matrix.container }}/Dockerfile
 
       - name: Push container
         uses: redhat-actions/push-to-registry@v2
