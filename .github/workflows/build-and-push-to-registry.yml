@@ -23,7 +23,7 @@ jobs:
           #          - android-app-builder
           #          - android-root-image-builder
           - android-boot-image-builder
-          #          - android-astro-super-tools
+          - android-astro-super-tools
           - java-services-builder
     steps:
       - name: Checkout sources
