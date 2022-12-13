@@ -1,4 +1,4 @@
-FROM ghcr.io/shymega/planet-build-system-containers:latest-planet-android-astro-super-tools AS base
+FROM ghcr.io/shymega/planet-build-system-containers:latest-planet-android-rom-builder AS base
 
 ENV DEBIAN_FRONTEND=noninteractive
 
