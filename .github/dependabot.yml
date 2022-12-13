@@ -3,21 +3,14 @@ updates:
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
-      interval: "daily"
-      time: "06:00" # UTC
-    labels:
-      - "scope: docker-deps"
+      interval: "weekly"
     commit-message:
       prefix: "chore(deps)"
-    open-pull-requests-limit: 10
 
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "daily"
-      time: "06:00" # UTC
-    labels:
-      - "scope: ci-deps"
+      interval: "weekly"
     commit-message:
       prefix: "chore(ci)"
     open-pull-requests-limit: 10
