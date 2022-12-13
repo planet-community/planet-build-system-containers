@@ -14,8 +14,6 @@ RUN apt-get update \
     && wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add - \
     && add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/ \
     && apt-get update \
-    && apt-get upgrade -y \
-    && apt-get dist-upgrade -y \
     && apt-get install -y \
     bc \
     abootimg \
