@@ -58,6 +58,5 @@ RUN apt-get update \
     && curl -s "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/android-9.0.0_r1/clang-4691093.tar.gz" | tar xzf - -C /opt/clang \
     && curl -s "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/+archive/refs/heads/pie-release.tar.gz" | tar xzf - -C /opt/gcc
 
-
 USER jenkins
 ENTRYPOINT ["/usr/local/bin/jenkins-agent"]
