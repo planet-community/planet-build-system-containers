@@ -1,0 +1,47 @@
+name: Containers CI builder
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Ensures that only one deploy task per branch/environment will run at a time.
+concurrency:
+  group: gh-ref-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-dependent-images:
+    name: Build and push helper container images
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        type:
+          - android-rom-builder
+          - postmarketos-rom-builder
+          #          - android-app-builder
+          #          - android-root-image-builder
+          - android-boot-image-builder
+          #          - android-astro-super-tools
+          - java-services-builder
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v3
+
+      - name: Build images
+        id: build
+        uses: redhat-actions/buildah-build@v2
+        with:
+          image: ${{ github.repository }}
+          tags: ${{ matrix.type }}
+          containerfiles: ${{ matrix.type }}/Dockerfile
+
+      - name: Push container
+        uses: redhat-actions/push-to-registry@v2
+        with:
+          image: ${{ steps.build.outputs.image }}
+          tags: ${{ steps.build.outputs.tags }}
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
