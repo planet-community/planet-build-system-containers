@@ -18,7 +18,14 @@ RUN apt-get update \
     && apt-get dist-upgrade -y \
     && apt-get install -y \
     bc \
+    abootimg \
     bison \
+    curl \
+    cpio \
+    python2 \
+    python3 \
+    python \
+    libtinfo5  \
     build-essential \
     ccache \
     curl \
@@ -48,7 +55,11 @@ RUN apt-get update \
     adoptopenjdk-8-hotspot \
     maven \
     && curl -s -o /usr/local/bin/repo https://storage.googleapis.com/git-repo-downloads/repo \
-    && chmod a+x /usr/local/bin/repo
+    && chmod a+x /usr/local/bin/repo \
+    && mkdir -pv /opt/clang /opt/gcc \
+    && curl -s "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/android-9.0.0_r1/clang-4691093.tar.gz" | tar xzf - -C /opt/clang \
+    && curl -s "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/+archive/refs/heads/pie-release.tar.gz" | tar xzf - -C /opt/gcc
+
 
 USER jenkins
 ENTRYPOINT ["/usr/local/bin/jenkins-agent"]
