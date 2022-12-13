@@ -5,8 +5,6 @@ ENV DEBIAN_FRONTEND=noninteractive
 USER root
 
 RUN apt-get update \
-  && apt-get upgrade -y \
-  && apt-get dist-upgrade -y \
   && apt-get install -y \
   git \
   python3-pip  \
