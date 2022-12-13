@@ -1,12 +1,10 @@
-FROM docker.io/jenkins/inbound-agent:latest-jdk11 AS base
+FROM ghcr.io/shymega/planet-build-system-containers:android-rom-builder AS base
 
 ENV DEBIAN_FRONTEND=noninteractive
 
 USER root
 
 RUN apt-get update \
-    && apt-get upgrade -y \
-    && apt-get dist-upgrade -y \
     && apt-get install -y \ 
         git \
         build-essential \
