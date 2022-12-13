@@ -1,3 +1,5 @@
+FROM ghcr.io/shymega/planet-build-system-containers:latest-planet-android-rom-builder AS base
+
 FROM docker.io/jenkins/inbound-agent:latest-jdk11 AS base
 
 ENV CCACHE_SIZE=50G \
