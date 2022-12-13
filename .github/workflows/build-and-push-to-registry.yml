@@ -35,7 +35,7 @@ jobs:
         with:
           image: ${{ github.repository }}
           context: ${{ matrix.container }}/
-          tags:  ${{ contains(github.ref_name, 'master') && 'latest' || github.ref_name }}-PLANET_${{ matrix.container }}
+          tags: ${{ contains(github.ref_name, 'main') && 'latest' || github.ref_name }}-PLANET_${{ matrix.container }}
           containerfiles: ${{ matrix.container }}/Dockerfile
 
       - name: Push container
