@@ -1,4 +1,4 @@
-FROM ghcr.io/shymega/planet-build-system-containers:android-rom-builder AS base
+FROM ghcr.io/shymega/planet-build-system-containers:latest-planet-android-boot-image-builder AS base
 
 USER jenkins
 
