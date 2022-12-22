@@ -1,4 +1,4 @@
-FROM docker.io/jenkins/inbound-agent:latest-jdk11 AS base
+FROM ghcr.io/shymega/planet-build-system-containers:enable-other-images-planet-jenkins-base-agent-image AS base
 
 ENV DEBIAN_FRONTEND=noninteractive
 

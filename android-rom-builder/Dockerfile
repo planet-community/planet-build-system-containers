@@ -1,4 +1,4 @@
-FROM docker.io/jenkins/inbound-agent:latest-jdk11 AS base
+FROM ghcr.io/shymega/planet-build-system-containers:enable-other-images-planet-jenkins-base-agent-image AS base
 
 ENV CCACHE_SIZE=50G \
     CCACHE_DIR=/var/cache/ccache \

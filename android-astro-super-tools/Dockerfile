@@ -9,7 +9,10 @@ RUN apt-get update \
         git \
         build-essential \
         clang \
-        zlib1g-dev
+        zlib1g-dev \
+    && git clone https://github.com/loopback7084/astro_super_tools \
+        /opt/astro_super_tools \
+    && chown -R jenkins:jenkins /opt/astro_super_tools
 
 USER jenkins
 ENTRYPOINT ["/usr/local/bin/jenkins-agent"]
