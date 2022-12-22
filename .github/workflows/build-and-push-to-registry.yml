@@ -17,11 +17,11 @@ jobs:
       max-parallel: 1
       matrix:
         container:
-          # - jenkins-base-agent-image
+          - jenkins-base-agent-image
           - android-rom-builder
           - postmarketos-rom-builder
-          #          - android-app-builder
-          #          - android-root-image-builder
+            # - android-app-builder
+          - android-root-image-builder
           - android-boot-image-builder
           - android-astro-super-tools
           - java-services-builder
