@@ -1,4 +1,4 @@
-FROM ghcr.io/shymega/planet-build-system-containers:enable-other-images-planet-jenkins-base-agent-image AS base
+FROM ghcr.io/shymega/planet-build-system-containers:latest-planet-jenkins-base-agent-image AS base
 
 ENV DEBIAN_FRONTEND=noninteractive
 
