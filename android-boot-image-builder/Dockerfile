@@ -9,7 +9,7 @@ RUN apt -y install \
          wget \
 	 mkbootimg \
          xz-utils \
-    && git clone -b test-ci https://github.com/shymega/android_build_astro_kernel  /work/android_build_astro_kernel \
+    && git clone https://github.com/cawilliamson/android_build_astro_kernel /work/android_build_astro_kernel \
     && cp -Rv /work/android_build_astro_kernel/common /opt/common \
     && mkdir -p /usr/src \
     && chown -R jenkins:jenkins /usr/src
