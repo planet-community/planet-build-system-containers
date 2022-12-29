@@ -9,8 +9,8 @@ RUN apt -y install \
          wget \
 	 mkbootimg \
          xz-utils \
-    && git clone -b use-debian-bootimg https://github.com/shymega/android_build_astro_kernel  /work/android_build_astro_kernel \
-    && cp -Rv /work/android_build_astro_kernel/common /opt/common\
+    && git clone -b tst-ci https://github.com/shymega/android_build_astro_kernel  /work/android_build_astro_kernel \
+    && cp -Rv /work/android_build_astro_kernel/common /opt/common \
     && mkdir -p /usr/src \
     && chown -R jenkins:jenkins /usr/src
 
