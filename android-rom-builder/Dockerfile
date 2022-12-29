@@ -57,8 +57,7 @@ RUN apt install -y wget sudo gnupg2 software-properties-common \
     && chmod a+x /usr/local/bin/repo \
     && curl -s "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/+archive/refs/heads/pie-release.tar.gz" | tar xzf - -C /opt/gcc
     && curl -s "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/pie-release.tar.gz" | tar xzf - -C /opt/ \
-    && ln -sf /opt/clang-${CLANG_VERSION} /opt/clang \
-    && rm -f /var/tmp/clang.tar.gz
-
+    && ln -sf /opt/clang-${CLANG_VERSION} /opt/clang
+    
 USER jenkins
 ENTRYPOINT ["/usr/local/bin/jenkins-agent"]
