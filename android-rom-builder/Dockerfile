@@ -56,7 +56,7 @@ RUN apt install -y wget sudo gnupg2 software-properties-common \
     && curl -s -o /usr/local/bin/repo https://storage.googleapis.com/git-repo-downloads/repo \
     && chmod a+x /usr/local/bin/repo \
     && mkdir -pv /opt/gcc \
-    && curl -s "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/+archive/refs/heads/pie-release.tar.gz" | tar xzf - -C /opt/gcc
+    && curl -s "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/+archive/refs/heads/pie-release.tar.gz" | tar xzf - -C /opt/gcc \
     && curl -s "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/pie-release.tar.gz" | tar xzf - -C /opt/ \
     && ln -sf /opt/clang-${CLANG_VERSION} /opt/clang
     
