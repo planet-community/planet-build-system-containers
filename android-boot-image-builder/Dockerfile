@@ -15,12 +15,9 @@ RUN apt -y install \
          python-is-python3 \
          python3-pip \
          wget \
+	 mkbootimg \
          xz-utils \
-    && mkdir /opt/unpackbootimg \
-    && git clone https://github.com/osm0sis/mkbootimg.git /opt/unpackbootimg \
-    && cd /opt/unpackbootimg \
-    && make CC=$CC CROSS_COMPILE=$CROSS_COMPILE \
-    && git clone https://github.com/cawilliamson/android_build_astro_kernel  /work/android_build_astro_kernel \
+    && git clone -b use-debian-bootimg https://github.com/shymega/android_build_astro_kernel  /work/android_build_astro_kernel \
     && cp -Rv /work/android_build_astro_kernel/common /opt/common
 
 USER jenkins
