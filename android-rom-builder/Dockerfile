@@ -55,7 +55,6 @@ RUN apt install -y wget sudo gnupg2 software-properties-common \
     maven \
     && curl -s -o /usr/local/bin/repo https://storage.googleapis.com/git-repo-downloads/repo \
     && chmod a+x /usr/local/bin/repo \
-    && mkdir -pv /opt/clang /opt/gcc \
     && curl -L -o /var/tmp/gcc.tar.gz https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/+archive/pie-release.tar.gz \
     && mkdir -p /opt/gcc \
     && tar -xvpf /var/tmp/gcc.tar.gz -C /opt/gcc \
