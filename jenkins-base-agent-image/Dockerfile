@@ -9,9 +9,11 @@ ENV CCACHE_SIZE=50G \
 
 USER root
 
-RUN apt-get update \
-    && apt-get install -y wget sudo gnupg2 software-properties-common \
-    && apt-get install -y \
+RUN apt update \
+    && apt upgrade -y \
+    && apt dist-upgrade -y \
+    && apt install -y wget sudo gnupg2 software-properties-common \
+    && apt install -y \
     abootimg \
     curl \
     cpio \

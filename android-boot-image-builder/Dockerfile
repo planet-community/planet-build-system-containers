@@ -24,6 +24,7 @@ RUN apt -y install \
     && cp -Rv /work/android_build_astro_kernel/common /opt/common
 
 USER jenkins
+
 ENV DEBIAN_FRONTEND=noninteractive \
     ARCH=arm64 \
     PATH=/opt/clang/bin:/opt/gcc/bin:$PATH \
