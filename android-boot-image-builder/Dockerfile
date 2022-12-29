@@ -24,4 +24,4 @@ ENV DEBIAN_FRONTEND=noninteractive \
     CROSS_COMPILE=aarch64-linux-android- \
     CROSS_COMPILE_ARM32=arm-linux-androideabi-
 
-CMD ["/bin/bash"]
+ENTRYPOINT ["/usr/local/bin/jenkins-agent"]
