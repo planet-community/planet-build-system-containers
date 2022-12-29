@@ -1,7 +1,5 @@
 FROM ghcr.io/shymega/planet-build-system-containers:latest-planet-android-rom-builder AS base
 
-USER jenkins
-
 ENV DEBIAN_FRONTEND=noninteractive \
     ARCH=arm64 \
     PATH=/opt/clang/bin:/opt/gcc/bin:$PATH \
@@ -10,6 +8,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     CROSS_COMPILE=aarch64-linux-android- \
     CROSS_COMPILE_ARM32=arm-linux-androideabi-
 
+USER root
 RUN apt -y install \
          kmod \
          libssl-dev \
@@ -24,4 +23,5 @@ RUN apt -y install \
     && git clone https://github.com/cawilliamson/android_build_astro_kernel  /work/android_build_astro_kernel \
     && cp -Rv /work/android_build_astro_kernel/common /opt/common
 
+USER jenkins
 ENTRYPOINT ["/usr/local/bin/jenkins-agent"]
