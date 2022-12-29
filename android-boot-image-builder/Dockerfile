@@ -37,6 +37,6 @@ RUN mkdir /opt/unpackbootimg && \
 
 WORKDIR /work
 RUN git clone https://github.com/cawilliamson/android_build_astro_kernel 
-COPY /work/common /root/common
+COPY /work/common /opt/common
 
 ENTRYPOINT ["/usr/local/bin/jenkins-agent"]
