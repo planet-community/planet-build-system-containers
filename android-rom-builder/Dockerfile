@@ -11,12 +11,11 @@ ENV CCACHE_SIZE=50G \
 
 USER root
 
-RUN apt-get update \
-    && apt-get install -y wget sudo gnupg2 software-properties-common \
+RUN apt install -y wget sudo gnupg2 software-properties-common \
     && wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add - \
     && add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/ \
-    && apt-get update \
-    && apt-get install -y \
+    && apt update \
+    && apt install -y \
     bc \
     abootimg \
     bison \

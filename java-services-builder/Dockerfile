@@ -4,8 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 USER root
 
-RUN apt-get update \
-    && apt-get install -y \ 
+RUN apt install -y \ 
     maven \
     git
 
