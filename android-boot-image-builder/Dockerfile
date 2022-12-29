@@ -8,11 +8,16 @@ RUN apt -y install \
          python3-pip \
          wget \
 	 mkbootimg \
+	 gcc \
          xz-utils \
     && git clone https://github.com/cawilliamson/android_build_astro_kernel /work/android_build_astro_kernel \
     && cp -Rv /work/android_build_astro_kernel/common /opt/common \
     && mkdir -p /usr/src \
-    && chown -R jenkins:jenkins /usr/src
+    && chown -R jenkins:jenkins /usr/src \
+    && mkdir /opt/unpackbootimg \
+    && git clone https://github.com/osm0sis/mkbootimg.git /opt/unpackbootimg \
+    && cd /opt/unpackbootimg \
+    && make CC=gcc
 
 USER jenkins
 
