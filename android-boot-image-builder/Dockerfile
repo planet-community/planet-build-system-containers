@@ -19,7 +19,7 @@ RUN apt -y install \
     && mkdir /opt/unpackbootimg \
     && git clone https://github.com/osm0sis/mkbootimg.git /opt/unpackbootimg \
     && cd /opt/unpackbootimg \
-    && make \
+    && make CC=$CC CROSS_COMPILE=$CROSS_COMPILE \
     && git clone https://github.com/cawilliamson/android_build_astro_kernel  /work/android_build_astro_kernel \
     && cp -Rv /work/android_build_astro_kernel/common /opt/common
 
