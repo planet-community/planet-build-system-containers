@@ -17,7 +17,7 @@ RUN apt -y install \
          python3-pip \
          wget \
          xz-utils \
-    && mkdir /opt/unpackbootimg && \
+    && mkdir /opt/unpackbootimg \
     && git clone https://github.com/osm0sis/mkbootimg.git /opt/unpackbootimg \
     && cd /opt/unpackbootimg \
     && make \
