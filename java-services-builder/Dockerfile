@@ -6,7 +6,8 @@ USER root
 
 RUN apt install -y \ 
     maven \
-    git
+    git \
+    openjdk-17-jdk
 
 USER jenkins
 ENTRYPOINT ["/usr/local/bin/jenkins-agent"]
