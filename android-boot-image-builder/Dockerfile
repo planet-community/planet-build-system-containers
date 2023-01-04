@@ -7,10 +7,10 @@ RUN apt -y install \
          python-is-python3 \
          python3-pip \
          wget \
-	 mkbootimg \
-	 gcc \
+    	 mkbootimg \
+    	 gcc \
          xz-utils \
-    && git clone --depth 1 --branch v0.4.0 https://github.com/PCLineageOS-Ports/android_build_planet_kernel /work/android_build_astro_kernel \
+    && git clone --depth 1 --branch v0.5.0 https://github.com/PCLineageOS-Ports/android_build_planet_kernel /work/android_build_astro_kernel \
     && cp -Rv /work/android_build_astro_kernel/common /opt/common \
     && mkdir -p /usr/src /out \
     && chown -R jenkins:jenkins /usr/src /out \
