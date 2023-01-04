@@ -15,7 +15,8 @@ RUN apt -y install \
     && mkdir -p /usr/src /out \
     && chown -R jenkins:jenkins /usr/src /out \
     && mkdir /opt/unpackbootimg \
-    && git clone https://github.com/osm0sis/mkbootimg.git /opt/unpackbootimg \
+    && git clone --depth 1 --branch 2022.11.09 \
+        https://github.com/osm0sis/mkbootimg.git /opt/unpackbootimg \
     && cd /opt/unpackbootimg \
     && make CC=gcc
 
