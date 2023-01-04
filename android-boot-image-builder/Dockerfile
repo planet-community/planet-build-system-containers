@@ -10,7 +10,7 @@ RUN apt -y install \
 	 mkbootimg \
 	 gcc \
          xz-utils \
-    && git clone --depth 1 --branch v0.2.0 https://github.com/PCLineageOS-Ports/android_build_planet_kernel /work/android_build_astro_kernel \
+    && git clone --depth 1 --branch v0.3.0 https://github.com/PCLineageOS-Ports/android_build_planet_kernel /work/android_build_astro_kernel \
     && cp -Rv /work/android_build_astro_kernel/common /opt/common \
     && mkdir -p /usr/src /out \
     && chown -R jenkins:jenkins /usr/src /out \
