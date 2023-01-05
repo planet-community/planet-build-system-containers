@@ -6,14 +6,14 @@ USER root
 
 RUN apt install -y \
   git \
-  python3-pip  \
-  python3-dev \
-  python2-dev \
-  python2 \
-  python3 \
-  sudo  \
   openssl \ 
   procps \
+  python2 \
+  python2-dev \
+  python3 \
+  python3-dev \
+  python3-pip  \
+  sudo  \
   sudo \
   && pip3 install -U pmbootstrap
 

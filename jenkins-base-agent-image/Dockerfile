@@ -12,25 +12,28 @@ USER root
 RUN apt update \
     && apt upgrade -y \
     && apt dist-upgrade -y \
-    && apt install -y wget sudo gnupg2 software-properties-common \
-    && apt install -y \
+    && apt install -y
     abootimg \
-    curl \
-    cpio \
-    python2 \
-    python3 \
-    python \
-    libtinfo5  \
     build-essential \
     ccache \
+    cpio \
+    curl \
     curl \
     flex \
     g++-multilib \
     gcc-multilib \
     git \
-    zip \
-    unzip \
+    gnupg2 \
+    libtinfo5  \
     maven
+    python \
+    python2 \
+    python3 \
+    software-properties-common \
+    sudo \
+    unzip \
+    wget \
+    zip
 
 USER jenkins
 ENTRYPOINT ["/usr/local/bin/jenkins-agent"]

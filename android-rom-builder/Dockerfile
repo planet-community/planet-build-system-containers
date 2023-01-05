@@ -16,17 +16,14 @@ RUN apt install -y wget sudo gnupg2 software-properties-common \
     && add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/ \
     && apt update \
     && apt install -y \
-    bc \
     abootimg \
+    adoptopenjdk-8-hotspot \
+    bc \
     bison \
-    curl \
-    cpio \
-    python2 \
-    python3 \
-    python \
-    libtinfo5  \
     build-essential \
     ccache \
+    cpio \
+    curl \
     curl \
     flex \
     g++-multilib \
@@ -41,18 +38,21 @@ RUN apt install -y wget sudo gnupg2 software-properties-common \
     libncurses5-dev \
     libsdl1.2-dev \
     libssl-dev \
+    libtinfo5  \
     libxml2 \
     libxml2-utils \
     lzop \
+    maven \
     pngcrush \
+    python \
+    python2 \
+    python3 \
     rsync \
     schedtool \
     squashfs-tools \
     xsltproc \
     zip \
     zlib1g-dev \
-    adoptopenjdk-8-hotspot \
-    maven \
     && curl -s -o /usr/local/bin/repo https://storage.googleapis.com/git-repo-downloads/repo \
     && chmod a+x /usr/local/bin/repo \
     && mkdir -pv /opt/gcc \
