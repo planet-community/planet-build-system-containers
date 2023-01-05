@@ -12,7 +12,7 @@ USER root
 RUN apt update \
     && apt upgrade -y \
     && apt dist-upgrade -y \
-    && apt install -y
+    && apt install -y \
     abootimg \
     build-essential \
     ccache \
