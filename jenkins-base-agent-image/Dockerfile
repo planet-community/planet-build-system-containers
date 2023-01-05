@@ -25,7 +25,7 @@ RUN apt update \
     git \
     gnupg2 \
     libtinfo5  \
-    maven
+    maven \
     python \
     python2 \
     python3 \
