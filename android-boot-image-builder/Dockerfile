@@ -2,15 +2,15 @@ FROM ghcr.io/shymega/planet-build-system-containers:latest-planet-android-rom-bu
 
 USER root
 RUN apt -y install \
+         gcc \
+         mkbootimg \
          kmod \
          libssl-dev \
          python-is-python3 \
          python3-pip \
          wget \
-    	 mkbootimg \
-    	 gcc \
          xz-utils \
-    && git clone --depth 1 --branch v0.5.0 https://github.com/PCLineageOS-Ports/android_build_planet_kernel /work/android_build_planet_kernel \
+    && git clone --depth 1 --branch v0.6.0 https://github.com/PCLineageOS-Ports/android_build_planet_kernel /work/android_build_planet_kernel \
     && cp -Rv /work/android_build_planet_kernel/common /opt/common \
     && mkdir -p /usr/src /out \
     && chown -R jenkins:jenkins /usr/src /out \
