@@ -6,11 +6,10 @@ RUN apt -y install \
          mkbootimg \
          kmod \
          libssl-dev \
+         python-is-python3 \
          python3-pip \
          wget \
          xz-utils \
-    && rm -v /usr/bin/python \
-    && sudo ln -s /bin/python2 /usr/bin/python \
     && git clone --depth 1 --branch v0.6.0 https://github.com/PCLineageOS-Ports/android_build_planet_kernel /work/android_build_planet_kernel \
     && cp -Rv /work/android_build_planet_kernel/common /opt/common \
     && mkdir -p /usr/src /out \
