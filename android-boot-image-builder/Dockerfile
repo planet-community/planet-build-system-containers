@@ -7,7 +7,6 @@ RUN apt -y install \
          kmod \
          libssl-dev \
          python3-pip \
-         python2-pip \
          wget \
          xz-utils \
     && rm -v /usr/bin/python \
