@@ -1,4 +1,6 @@
-FROM ghcr.io/shymega/planet-build-system-containers:latest-planet-jenkins-base-agent-image AS base
+ARG REF=main
+
+FROM ghcr.io/shymega/planet-build-system-containers:$REF-planet-jenkins-base-agent-image AS base
 
 ARG CLANG_VERSION=4691093
 
