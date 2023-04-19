@@ -1,4 +1,6 @@
-FROM ghcr.io/shymega/planet-build-system-containers:latest-planet-android-rom-builder AS base
+ARG REF=main
+
+FROM ghcr.io/shymega/planet-build-system-containers:$REF-planet-android-rom-builder AS base
 
 ENV DEBIAN_FRONTEND=noninteractive
 

@@ -62,6 +62,7 @@ jobs:
           platforms: linux/amd64
           push: ${{ github.event_name != 'pull_request' && github.ref_name == 'main' }}
           tags: ${{ steps.meta.outputs.tags }}
+          build-args: REF=${{ github.ref_name }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
 
