@@ -62,7 +62,7 @@ jobs:
         with:
           context: ./${{ matrix.container }}
           platforms: linux/amd64
-          push: ${{ github.event_name != 'pull_request' && github.ref_name == 'main' }}
+          push: ${{ github.event_name != 'pull_request' && (github.ref_name == 'main' || startsWith(github.ref_name, "v") }}
           tags: ${{ steps.meta.outputs.tags }}
           build-args: REF=${{ github.ref_name == 'main' && 'latest' || github.ref_name }}
           cache-from: type=local,src=/tmp/.buildx-cache
