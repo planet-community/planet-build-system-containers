@@ -58,7 +58,7 @@ jobs:
           tags: ${{ github.ref_name == 'main' && 'latest' || github.ref_name }}-planet-${{ matrix.container }}
 
       - name: Build and push image to container registry
-        uses: docker/build-push-action@v3.0.0
+        uses: docker/build-push-action@v4.0.0
         with:
           context: ./${{ matrix.container }}
           platforms: linux/amd64
