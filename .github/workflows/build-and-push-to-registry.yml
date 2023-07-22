@@ -1,4 +1,4 @@
-name: Containers CI builder
+name: All Containers CI builder
 on:
   push:
     tags:
