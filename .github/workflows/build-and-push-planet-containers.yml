@@ -1,4 +1,4 @@
-name: Containers CI builder
+name: Planet Containers builder
 on:
   workflow_call:
 
