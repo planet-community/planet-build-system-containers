@@ -15,10 +15,10 @@ jobs:
       matrix:
         container:
           - jenkins-base-agent-image
-          - android-astro-super-tools
-          - android-boot-image-builder
           - android-rom-builder
+          - android-boot-image-builder
           - android-root-image-builder
+          - android-astro-super-tools
           - java-services-builder
           - postmarketos-rom-builder
     steps:
