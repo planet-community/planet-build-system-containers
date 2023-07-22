@@ -1,0 +1,12 @@
+FROM ghcr.io/cross-rs/aarch64-unknown-linux-musl:latest
+
+LABEL org.opencontainers.image.source https://github.com/cosmo-codios/codios-build-containers
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update \
+    && apt-get upgrade -y \
+    && apt-get dist-upgrade -y \
+    && apt-get install --no-install-recommends -y libclang-dev \
+        llvm-dev clang build-essential g++-multilib \
+        libc6-dev-i386 gcc-arm-none-eabi

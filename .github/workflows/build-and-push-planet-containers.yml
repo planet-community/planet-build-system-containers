@@ -1,0 +1,68 @@
+name: Containers CI builder
+on:
+  workflow_call:
+
+permissions:
+  packages: write
+
+jobs:
+  build-planet-container-images:
+    name: Build and push build helper container images
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      max-parallel: 1
+      matrix:
+        container:
+          - jenkins-base-agent-image
+          - android-astro-super-tools
+          - android-boot-image-builder
+          - android-rom-builder
+          - android-root-image-builder
+          - java-services-builder
+          - postmarketos-rom-builder
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v3
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
+      - name: Login to GHCR.io registry
+        uses: docker/login-action@v2.2.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2.9.1
+
+      - name: Cache Docker layers
+        uses: actions/cache@v3
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-image-${{ matrix.container }}
+
+      - name: Image labelling
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: ghcr.io/${{ github.repository }}
+          tags: ${{ github.ref_name == 'main' && 'latest' }}-planet-${{ matrix.container }}
+
+      - name: Build and push image to container registry
+        uses: docker/build-push-action@v4.1.1
+        with:
+          context: ./${{ matrix.container }}
+          platforms: linux/amd64
+          push: ${{ github.event_name != 'pull_request' && (github.ref_name == 'main' || startsWith(github.ref, 'refs/tags/v')) }}
+          tags: ${{ steps.meta.outputs.tags }}
+          build-args: REF=${{ github.ref_name == 'main' && 'latest' }}
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache-new
+
+      - name: Move cache
+        run: |
+          rm -rf /tmp/.buildx-cache
+          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
