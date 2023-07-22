@@ -1,0 +1,12 @@
+FROM ghcr.io/cross-rs/aarch64-unknown-linux-musl:latest
+
+LABEL org.opencontainers.image.source https://github.com/cosmo-codios/codios-build-containers
+	
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN dpkg --add-architecture arm64 \
+    && apt-get update \
+    && apt-get install -y libdbus-1-dev:arm64 \
+       libudev-dev:arm64 libglib2.0-dev:arm64 libsqlite3-dev:amd64 \
+       libudev-dev:amd64 libdbus-1-dev:amd64 libsqlite3-dev:arm64 \
+       libsqlite3-dev:amd64 pkg-config:amd64 protobuf-compiler:amd64
