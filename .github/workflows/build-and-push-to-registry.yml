@@ -30,14 +30,14 @@ jobs:
     uses: ./.github/workflows/build-and-push-codid-jenkins.yml
     secrets: inherit
 
-  build-cosmo-codios-cargo-container-image:
+  build-cosmo-codios-codios-cargo-container-image:
     if: ${{ github.repository_owner == 'shymega' }} # To be changed to PC.
-    uses: ./.github/workflows/build-and-push-codios-cargo.yml
+    uses: ./.github/workflows/build-and-push-codios-codios-cargo.yml
     secrets: inherit
 
-  build-cosmo-codios-jenkins-container-image:
+  build-cosmo-codios-codios-jenkins-container-image:
     needs: [build-planet-container-images]
     if: false # Temporarily disabled.
-    uses: ./.github/workflows/build-and-push-codios-jenkins.yml
+    uses: ./.github/workflows/build-and-push-codios-codios-jenkins.yml
     secrets: inherit
 
