@@ -25,7 +25,8 @@ jobs:
     secrets: inherit
 
   build-cosmo-codid-jenkins-container-image:
-    if: ${{ false && github.repository_owner == 'shymega' }} # Temporarily disabled.
+    needs: [build-planet-container-images]
+    if: false # Temporarily disabled.
     uses: ./.github/workflows/build-and-push-codid-jenkins.yml
     secrets: inherit
 
@@ -35,7 +36,8 @@ jobs:
     secrets: inherit
 
   build-cosmo-codios-jenkins-container-image:
-    if: ${{ false && github.repository_owner == 'shymega' }} # Temporarily disabled.
+    needs: [build-planet-container-images]
+    if: false # Temporarily disabled.
     uses: ./.github/workflows/build-and-push-codios-jenkins.yml
     secrets: inherit
 
