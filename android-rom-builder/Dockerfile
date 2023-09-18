@@ -46,9 +46,6 @@ RUN apt install -y wget sudo gnupg2 software-properties-common \
     lzop \
     maven \
     pngcrush \
-    python \
-    python2 \
-    python3 \
     rsync \
     schedtool \
     squashfs-tools \
