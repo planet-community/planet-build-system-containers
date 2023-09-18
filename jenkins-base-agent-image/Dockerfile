@@ -18,17 +18,13 @@ RUN apt update \
     ccache \
     cpio \
     curl \
-    curl \
     flex \
     g++-multilib \
     gcc-multilib \
     git \
     gnupg2 \
     libtinfo5  \
-    maven \
-    python \
-    python2 \
-    python3 \
+    python-is-python3 \
     software-properties-common \
     sudo \
     unzip \

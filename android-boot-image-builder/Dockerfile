@@ -8,7 +8,6 @@ RUN apt -y install \
          mkbootimg \
          kmod \
          libssl-dev \
-         python-is-python3 \
          python3-pip \
          wget \
          xz-utils \

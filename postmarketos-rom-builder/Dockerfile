@@ -10,14 +10,11 @@ RUN apt install -y \
   git \
   openssl \ 
   procps \
-  python2 \
-  python2-dev \
-  python3 \
   python3-dev \
   python3-pip  \
   sudo  \
   sudo \
-  && pip3 install -U pmbootstrap
+  && pip install -U pmbootstrap
 
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
     && gpasswd -a jenkins sudo
