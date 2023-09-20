@@ -13,13 +13,14 @@ ENV CCACHE_SIZE=50G \
 
 USER root
 
-RUN apt install -y wget sudo gnupg2 software-properties-common \
-    && wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add - \
-    && add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/ \
+RUN apt install -y wget sudo gnupg2 software-properties-common apt-transport-https \
+    && mkdir -p /etc/apt/keyrings
+    && wget -O - https://packages.adoptium.net/artifactory/api/gpg/key/public | tee /etc/apt/keyrings/adoptium.asc
+    && echo "deb [signed-by=/etc/apt/keyrings/adoptium.asc] https://packages.adoptium.net/artifactory/deb $(awk -F= '/^VERSION_CODENAME/{print$2}' /etc/os-release) main" | tee /etc/apt/sources.list.d/adoptium.list
     && apt update \
     && apt install -y \
     abootimg \
-    adoptopenjdk-8-hotspot \
+    temurin-8-jdk \
     bc \
     bison \
     build-essential \
