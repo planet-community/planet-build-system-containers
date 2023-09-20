@@ -1,4 +1,4 @@
-FROM ghcr.io/cross-rs/x86_64-unknown-linux-musl:latest
+FROM ghcr.io/cross-rs/x86_64-unknown-linux-musl:edge
 
 LABEL org.opencontainers.image.source https://github.com/cosmo-codios/codios-build-containers
 
