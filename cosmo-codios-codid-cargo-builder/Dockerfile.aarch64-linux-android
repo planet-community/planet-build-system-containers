@@ -1,4 +1,4 @@
-FROM ghcr.io/cross-rs/aarch64-linux-android:latest
+FROM ghcr.io/cross-rs/aarch64-linux-android:edge
 
 LABEL org.opencontainers.image.source https://github.com/cosmo-codios/codios-build-containers
 
