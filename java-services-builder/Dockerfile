@@ -6,7 +6,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 USER root
 
-RUN apt install -y \ 
+RUN mkdir -p /usr/share/man/man1 \
+  && apt install -y \ 
         git \
         maven
 	
