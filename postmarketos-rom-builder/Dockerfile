@@ -12,9 +12,7 @@ RUN apt install -y \
   procps \
   python3-dev \
   python3-pip  \
-  sudo  \
-  sudo \
-  && pip install -U pmbootstrap
+  sudo 
 
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
     && gpasswd -a jenkins sudo
