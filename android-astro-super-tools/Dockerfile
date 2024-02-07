@@ -1,12 +1,15 @@
-ARG REF=main
+ARG REF=latest
 
-FROM ghcr.io/shymega/planet-build-system-containers:$REF-planet-android-rom-builder AS base
+FROM ghcr.io/planet-community-org/planet-build-system-containers:$REF-planet-android-boot-image-builder AS base
 
 ENV DEBIAN_FRONTEND=noninteractive
 
 USER root
 
-RUN apt install -y \ 
+RUN apt -y update \
+    && apt -y upgrade \
+    && apt -y dist-upgrade \
+    && apt -y install \
         clang \
     && git clone https://github.com/loopback7084/astro_super_tools \
         /opt/astro_super_tools \
