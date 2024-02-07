@@ -1,6 +1,6 @@
-ARG REF=main
+ARG REF=latest
 
-FROM ghcr.io/shymega/planet-build-system-containers:$REF-planet-jenkins-base-agent-image AS base
+FROM ghcr.io/planet-community-org/planet-build-system-containers:$REF-planet-jenkins-base-agent-image AS base
 
 ENV DEBIAN_FRONTEND=noninteractive
 
