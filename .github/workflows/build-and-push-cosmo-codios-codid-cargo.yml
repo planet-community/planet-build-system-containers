@@ -1,4 +1,4 @@
-name: Cosmo-CoDiOS CoDiOS Cargo reusable workflow
+name: Cosmo-CoDiOS codid Cargo reusable workflow
 on:
   workflow_call:
 
@@ -6,7 +6,7 @@ permissions:
   packages: write
 
 jobs:
-  build-cosmo-codios-codios-cargo-container-image:
+  build-cosmo-codid-cargo-container-image:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: true
@@ -14,7 +14,7 @@ jobs:
       matrix:
         target:
           - "aarch64-unknown-linux-musl"
-          - "thumbv7em-none-eabihf"
+          - "aarch64-linux-android"
           - "x86_64-unknown-linux-musl"
     steps:
       - name: Checkout sources
@@ -39,22 +39,22 @@ jobs:
         uses: actions/cache@v4
         with:
           path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-image-cosmo-codios-codios-cargo-${{ matrix.target }}
+          key: ${{ runner.os }}-image-cosmo-codid-cargo-${{ matrix.target }}
 
       - name: Image labelling
         id: meta
         uses: docker/metadata-action@v5
         with:
           images: ghcr.io/${{ github.repository }}
-          tags: latest-cosmo-codios-codios-cargo-${{ matrix.target }}
+          tags: latest-cosmo-codid-cargo-${{ matrix.target }}
 
       - name: Build and push image to container registry
         uses: docker/build-push-action@v5.1.0
         with:
-          context: ./cosmo-codios-codios-codios-cargo-builder
-          file: ./cosmo-codios-codios-codios-cargo-builder/Dockerfile.${{ matrix.target }}
+          context: ./cosmo-codios-codid-cargo-builder
+          file: ./cosmo-codios-codid-cargo-builder/Dockerfile.${{ matrix.target }}
           platforms: linux/amd64
-          push: ${{ github.event_name != 'pull_request' && (github.ref_name == 'main' || startsWith(github.ref, 'refs/tags/v')) }}
+          push: ${{ github.event_name != 'pull_request' && (github.ref_name != 'main' || startsWith(github.ref, 'refs/tags/v')) }}
           tags: ${{ steps.meta.outputs.tags }}
           build-args: REF=latest
           cache-from: type=local,src=/tmp/.buildx-cache

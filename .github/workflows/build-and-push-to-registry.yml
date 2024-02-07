@@ -15,29 +15,16 @@ permissions:
 
 jobs:
   build-planet-container-images:
-    if: ${{ github.repository_owner == 'shymega' }} # To be changed to PC.
+    if: ${{ github.repository_owner == 'planet-community-org' }} # To be changed to PC.
     uses: ./.github/workflows/build-and-push-planet-containers.yml
     secrets: inherit
 
-  build-cosmo-codid-cargo-container-image:
-    if: ${{ github.repository_owner == 'shymega' }} # To be changed to PC.
-    uses: ./.github/workflows/build-and-push-codid-cargo.yml
-    secrets: inherit
-
-  build-cosmo-codid-jenkins-container-image:
-    needs: [build-planet-container-images]
-    if: false # Temporarily disabled.
-    uses: ./.github/workflows/build-and-push-codid-jenkins.yml
+  build-cosmo-codios-codid-cargo-container-image:
+    if: ${{ github.repository_owner == 'planet-community-org' }} # To be changed to PC.
+    uses: ./.github/workflows/build-and-push-cosmo-codios-codid-cargo.yml
     secrets: inherit
 
   build-cosmo-codios-codios-cargo-container-image:
-    if: ${{ github.repository_owner == 'shymega' }} # To be changed to PC.
-    uses: ./.github/workflows/build-and-push-codios-codios-cargo.yml
+    if: ${{ github.repository_owner == 'planet-community-org' }} # To be changed to PC.
+    uses: ./.github/workflows/build-and-push-cosmo-codios-codios-cargo.yml
     secrets: inherit
-
-  build-cosmo-codios-codios-jenkins-container-image:
-    needs: [build-planet-container-images]
-    if: false # Temporarily disabled.
-    uses: ./.github/workflows/build-and-push-codios-codios-jenkins.yml
-    secrets: inherit
-
