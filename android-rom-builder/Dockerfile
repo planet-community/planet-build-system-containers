@@ -1,6 +1,6 @@
 ARG REF=latest
 
-FROM ghcr.io/planet-community-org/planet-build-system-containers:$REF-planet-jenkins-base-agent-image AS base
+FROM ghcr.io/planet-community/planet-build-system-containers:$REF-planet-jenkins-base-agent-image AS base
 
 ARG CLANG_VERSION=4691093
 

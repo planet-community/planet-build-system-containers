@@ -1,6 +1,6 @@
 ARG REF=latest
 
-FROM ghcr.io/planet-community-org/planet-build-system-containers:$REF-planet-android-boot-image-builder AS base
+FROM ghcr.io/planet-community/planet-build-system-containers:$REF-planet-android-boot-image-builder AS base
 
 ENV DEBIAN_FRONTEND=noninteractive
 
