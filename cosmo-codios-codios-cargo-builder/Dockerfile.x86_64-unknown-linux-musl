@@ -9,4 +9,4 @@ RUN apt-get update \
     && apt-get dist-upgrade -y \
     && apt-get install --no-install-recommends -y libclang-dev \
         llvm-dev clang build-essential g++-multilib \
-        libc6-dev-i386 gcc-arm-none-eabi libsdl2-dev
+        libc6-dev-i386 gcc-arm-none-eabi libsdl2-dev libasound2-dev
