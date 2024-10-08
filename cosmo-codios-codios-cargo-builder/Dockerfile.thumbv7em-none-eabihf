@@ -1,6 +1,6 @@
 FROM ghcr.io/cross-rs/thumbv7em-none-eabihf:latest
 
-LABEL org.opencontainers.image.source https://github.com/cosmo-codios/codios-build-containers
+LABEL org.opencontainers.image.source "https://github.com/planet-community/build-system-containers"
 
 ENV DEBIAN_FRONTEND=noninteractive
 

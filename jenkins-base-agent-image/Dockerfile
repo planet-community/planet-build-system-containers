@@ -1,5 +1,7 @@
 FROM docker.io/jenkins/inbound-agent:latest-jdk11 AS base
 
+LABEL org.opencontainers.image.source "https://github.com/planet-community/build-system-containers"
+
 ENV CCACHE_SIZE=50G \
     CCACHE_DIR=/var/cache/ccache \
     USE_CCACHE=1 \
