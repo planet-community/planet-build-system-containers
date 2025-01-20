@@ -54,7 +54,7 @@ jobs:
           tags: latest-planet-${{ matrix.container }}
 
       - name: Build and push image to container registry
-        uses: docker/build-push-action@v6.10.0
+        uses: docker/build-push-action@v6.12.0
         with:
           context: ./${{ matrix.container }}
           platforms: linux/amd64
