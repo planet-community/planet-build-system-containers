@@ -49,7 +49,7 @@ jobs:
           tags: latest-cosmo-codid-cargo-${{ matrix.target }}
 
       - name: Build and push image to container registry
-        uses: docker/build-push-action@v6.10.0
+        uses: docker/build-push-action@v6.12.0
         with:
           context: ./cosmo-codios-codid-cargo-builder
           file: ./cosmo-codios-codid-cargo-builder/Dockerfile.${{ matrix.target }}
